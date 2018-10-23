@@ -1,16 +1,15 @@
-#include <stdio.h>
+#include <bits/stdc++.h>
+using namespace std;
 
 int main()
 {
     int i, j, k, n;
-    scanf("%d", &n);
+    cin>>n;
 
     int ara[n], temp[n];
 
     for (i = 0; i < n; i++)
-    {
-        scanf("%d", &ara[i]);
-    }
+        cin>>ara[i];
 
     for (k = 1; k <= n; k++)
     {
@@ -27,12 +26,11 @@ int main()
 
     for (i = 0; i < n; i++)
     {
-        if (i > 0)
-            printf(" ");
+        if (i > 0) cout<<" ";
 
-        printf("%d", ara[i]);
+        cout<<ara[i];
     }
-    printf("\n");
+    cout<<endl;
 
     return 0;
 }
