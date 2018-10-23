@@ -2,6 +2,7 @@
 using namespace std;
 
 int binary_search(int A[], int N, int x);
+void screen_clear();
 
 int main()
 {
@@ -19,9 +20,13 @@ int main()
 
         position = binary_search(DATA, N, item);
 
-        if (position < 0) printf("Your searched element is not present in the DATA. Try again...\n\n");
+        if (position < 0) 
+            printf("\nYour searched element is not present in the DATA. Try again...\n\n");
 
-        else   printf("Your searched element is in %dth position of the DATA.\n\n", position+1);
+        else   
+            printf("\nYour searched element is in %dth position of the DATA.\n\n", position+1);
+        
+        screen_clear();
     }
 
     return 0;
@@ -45,3 +50,14 @@ int binary_search(int A[], int N, int x)
     return -1;
 }
 
+void screen_clear()
+{
+    getchar();
+
+    printf("Press any key to clear screen & then hit enter: ");
+
+    getchar();
+
+    system("cls"); /*works in windows OS*/
+    system("clear"); /*works in Unix OS*/
+}
