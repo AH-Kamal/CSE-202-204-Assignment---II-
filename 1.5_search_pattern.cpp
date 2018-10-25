@@ -18,11 +18,15 @@ int main()
         {
             if (P1[i] != T1[k+i-1]) break;
         }
-        if (i == P1.size()) cnt++;
+        if (i == P1.size())
+        {
+            cnt++;
+            printf("P1 Pattern found at T1 at index %d \n", k);
+        }
 
         k++;
     }
-    cout<<"P1 appears "<<cnt<<" time(s) in T1."<<endl;
+    cout<<"P1 appears "<<cnt<<" time(s) in T1."<<endl<<endl;
 
     k = 0;
     mx = T2.size() - P2.size() + 1;
@@ -34,7 +38,11 @@ int main()
         {
             if (P2[i] != T2[k+i-1]) break;
         }
-        if (i == P2.size()) cnt++;
+        if (i == P2.size())
+        {
+            cnt++;
+            printf("P2 Pattern found at T2 at index %d \n", k);
+        }
 
         k++;
     }
