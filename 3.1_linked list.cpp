@@ -8,6 +8,51 @@ struct Node{
 
 struct Node *head;
 void screen_clear();
+void search_item();
+void insert_first();
+void insert_last();
+void delete_item();
+void print(); 
+
+
+int main()
+{
+    head = NULL;
+
+    int choice;
+
+    while (1)
+    {
+        printf("Enter-\n");
+        printf("0 - to exit\n1 - to insert item at last\n2 - to insert item at first\n");
+        printf("3 - to delete an item(u want)\n4 - to search item\n5 - to display linked list\n");
+        scanf("%d", &choice);
+
+        if (choice == 0) break;
+
+        switch(choice)
+        {
+            case 1: insert_last();
+                    break;
+            case 2: insert_first();
+                    break;
+            case 3: delete_item();
+                    break;
+            case 4: search_item();
+                    break;
+
+            case 5: print();
+                    break;
+
+            default: cout<<"Wrong choice"<<endl;
+                    break;
+        }
+        screen_clear();
+    }
+
+
+    return 0;
+}
 
 void print()
 {
@@ -24,7 +69,7 @@ void print()
     cout<<endl;
 }
 
-void insert()
+void insert_last()
 {
     int value;
     cout<<"\nEnter which value U want to insert : ";
@@ -88,40 +133,31 @@ void delete_item()
         free(temp2);
     }
 }
-int main()
+
+void search_item()
 {
-    head = NULL;
+    int value;
+    cout<<"Enter which value U want to search? ";
+    cin>>value;
 
-    int choice;
+    struct Node *searchNode = head;
+    int flag = 0;
 
-    while (1)
+    while(searchNode != NULL)
     {
-        printf("Enter-\n");
-        printf("0 - to exit\n1 - to insert item at last\n2 - to insert item at first\n");
-        printf("3 - to delete an item(u want)\n4 - to display linked list\n");
-        scanf("%d", &choice);
-
-        if (choice == -1) break;
-
-        switch(choice)
+        if(searchNode->data == value)
         {
-            case 1: insert();
-                    break;
-            case 2: insert_first();
-                    break;
-            case 3: delete_item();
-                    break;
-            case 4: print();
-                    break;
-
-            default: cout<<"Wrong choice"<<endl;
-                    break;
+            printf("%d is present in this list. Memory address is %d\n", value, searchNode);
+            flag = 1;
+            break;
         }
-        screen_clear();
+        else
+            searchNode = searchNode->link;
     }
 
+    if(flag==0)
+        printf("Item not found\n");
 
-    return 0;
 }
 
 void screen_clear()
