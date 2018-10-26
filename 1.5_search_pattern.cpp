@@ -16,7 +16,7 @@ int main()
     {
         for (i = 0; i < P1.size(); i++)
         {
-            if (P1[i] != T1[k+i-1]) break;
+            if (P1[i] != T1[k+i]) break;
         }
         if (i == P1.size())
         {
@@ -36,7 +36,7 @@ int main()
     {
         for (i = 0; i < P2.size(); i++)
         {
-            if (P2[i] != T2[k+i-1]) break;
+            if (P2[i] != T2[k+i]) break;
         }
         if (i == P2.size())
         {
